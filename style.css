@@ -1,9 +1,9 @@
 /*
-Theme Name: Educate
-Theme URI: http://fruitthemes.com/wordpress-themes/educate
-Author: FruitThemes
-Author URI: http://fruitthemes.com/
-Description: Educate is a premium quality WordPress theme developed mainly for schools, colleges, training institutes etc in mind. It is a mobile responsive theme which means it is optimized for all the mobile devices, desktops etc. It is SEO friendly as well. It comes with Theme Options to ensure it is super easy to customize as per your needs.
+Theme Name: Educate Custom
+Theme URI:
+Author: KY LEE
+Author URI:
+Description: A fork of theme Educate (v1.0.6), adding about-us content to index and style changes.
 Version: 1.0.6
 License: GNU General Public License v3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -12,7 +12,7 @@ Educate is distributed under the terms of the GNU GPL
 Tags:  Brown, left-sidebar, right-sidebar, fluid-layout, responsive-layout, custom-menu, editor-style, featured-images, full-width-template, post-formats, sticky-post, theme-options, threaded-comments, translation-ready, custom-background, custom-header, sticky-post
 This theme, like WordPress, is licensed under the FruitThemes.
 Use it to make something cool, have fun, and share what you've learned with others.
-Text Domain: educate
+Text Domain: educate-custom
 */
 /************default CSS start**************/
 @font-face {
@@ -177,7 +177,7 @@ img{
     margin: 0 0 10px;
 }
 .site-title{
-	margin-top:-5px;
+    margin-top:-5px;
 }
 .title-box .content-heading > span{
     background: none repeat scroll 0 0 #733a23;
@@ -369,7 +369,7 @@ header {
     color: #d3d3d3;
 }
 .footer-bg1{
-	padding:0px 0;
+    padding:0px 0;
 }
 .footer-logo {
     text-align: center;
@@ -443,8 +443,8 @@ header {
 }
 .footer-widget ul li {
     padding-bottom: 10px;
-   
-    
+
+
 }
 .footer-sidebar .footer-widget .widget_recent_entries ul li{
 float:left;
@@ -569,7 +569,7 @@ padding-bottom:10px;
 }
 .sidebar-widget.widget_recent_entries  a:hover {
     color:#733a23;
-   
+
 }
 .comments-box ul li {
     border-bottom: 1px solid #ddd;
@@ -606,7 +606,7 @@ padding-bottom:10px;
 .sidebar-widget li:last-child{
     padding-bottom: 12px;
     margin-bottom: 0px;
-   
+
 }
 .sidebar-widget .widget_recent_entries .blog-title {
     display: block;
@@ -617,9 +617,9 @@ padding-bottom:10px;
 .tagcloud > a{
     border: 1px solid #676767;
     text-transform: uppercase;
-    border-radius: 3px;  
+    border-radius: 3px;
     display: inline-block;
-    
+
     margin: 0 5px 10px 0;
     padding: 9px 15px;
     vertical-align: baseline;
@@ -628,24 +628,24 @@ padding-bottom:10px;
 }
 
 .tagcloud > a:hover{
-    
+
     color:#733a23;
     border-color: #676767;
 }
 .footer-sidebar .tagcloud > a{
     border: 1px solid #d3d3d3;
     text-transform: uppercase;
-    border-radius: 3px;  
+    border-radius: 3px;
     display: inline-block;
-    
+
     margin: 0 5px 10px 0;
     padding: 9px 15px;
     vertical-align: baseline;
     font-size:12px !important;
-    color:#ffffff;	
+    color:#ffffff;
 }
 .footer-sidebar .tagcloud > a:hover{
-    
+
     color:#733a23;
     border-color: #676767;
 }
@@ -1028,6 +1028,9 @@ padding-bottom:10px;
     font-weight: bold;
     text-align: justify;
     line-height: 1.8;
+}
+.about-info a{
+    color: #6c6c6c;
 }
 .about-info-icon {
     text-align: center;

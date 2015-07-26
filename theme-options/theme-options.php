@@ -30,7 +30,8 @@ function educate_option_validate($input) {
     for ($educate_l = 1; $educate_l <= 5; $educate_l++):
         $input['about-icon-' . $educate_l] = sanitize_text_field($input['about-icon-' . $educate_l]);
         $input['abouttitle-' . $educate_l] = sanitize_text_field($input['abouttitle-' . $educate_l]);
-        $input['aboutdesc-' . $educate_l] = sanitize_text_field($input['aboutdesc-' . $educate_l]);
+        // our description now supports HTML code
+        $input['aboutdesc-' . $educate_l] = $input['aboutdesc-' . $educate_l];
     endfor;
 
     $input['blog-title'] = sanitize_text_field($input['blog-title']);
@@ -134,7 +135,6 @@ function educate_framework_page() {
                                 <li><a id="options-group-3-tab" class="nav-tab socialsettings-tab" title="<?php _e('Social Settings', 'educate'); ?>" href="#options-group-3">
                                         <?php _e('Social Settings', 'educate'); ?>
                                     </a></li>
-                                <li><a id="options-group-5-tab" class="nav-tab profeatures-tab" title="<?php _e('PRO Theme Features','educate');?>" href="#options-group-5"><?php _e('PRO Theme Features','educate');?></a></li>     
                             </ul>
                         </div>
                     </div>
@@ -202,7 +202,7 @@ function educate_framework_page() {
                                         if (!empty($educate_options['blogtitle'])) {
                                             echo esc_attr($educate_options['blogtitle']);
                                         }
-                                        ?>">
+                                        ?>" disabled>
                                     </div>
                                 </div>
                             </div>
@@ -319,7 +319,7 @@ function educate_framework_page() {
                                 <?php _e('About Us', 'educate'); ?>
                             </h3>
                             <div class="section theme-tabs theme-logo"> <a class="heading theme-option-inner-tab" href="javascript:void(0)">
-                                    <?php _e('About US Details', 'educate'); ?>
+                                    <?php _e('About Us Details', 'educate'); ?>
                                 </a>
                                 <div class="theme-option-inner-tab-group">
                                     <div class="ft-control">
@@ -370,7 +370,8 @@ function educate_framework_page() {
                                             ?>"  placeholder="<?php _e('Section Title', 'educate'); ?>" />
                                         </div>
                                         <div class="ft-control">
-                                            <textarea name="educate_theme_options[aboutdesc-<?php echo $educate_j; ?>]" id="aboutdesc-<?php echo $educate_j; ?>" class="of-input" placeholder="<?php _e('Section Description', 'educate'); ?>" maxlength="150" rows="5" ><?php
+                                            // our description now supports HTML code
+                                            <textarea name="educate_theme_options[aboutdesc-<?php echo $educate_j; ?>]" id="aboutdesc-<?php echo $educate_j; ?>" class="of-input" placeholder="<?php _e('Text/Html', 'educate'); ?>" maxlength="200" rows="5" ><?php
                                                 if (!empty($educate_options['aboutdesc-' . $educate_j])) {
                                                     echo esc_attr($educate_options['aboutdesc-' . $educate_j]);
                                                 }
@@ -556,17 +557,13 @@ function educate_framework_page() {
                                 </div>
                             </div>
                         </div>
-                        
-                         <div id="options-group-5" class="group theme-option-inner-tabs educate-pro-image">  
-							<div class="educate-pro-header">
-							  <img src="<?php echo get_template_directory_uri(); ?>/theme-options/images/educate_logopro_features.png" class="educate-pro-logo" />
-							  <a href="http://fruitthemes.com/wordpress-themes/educate" target="_blank">
-									<img src="<?php echo get_template_directory_uri(); ?>/theme-options/images/educate-buy-now.png" class="educate-pro-buynow" /></a>
-							  </div>
-							<img src="<?php echo get_template_directory_uri(); ?>/theme-options/images/educate_pro_features.png" />
-						  </div> 
-		
-                        
+
+                        <!-- remove PRO theme -->
+                         <div id="options-group-5" class="group theme-option-inner-tabs educate-pro-image">
+
+                        </div>
+
+
                         <!--======================== F I N A L - - T H E M E - - O P T I O N S ===================-->
                     </div>
                 </div>
