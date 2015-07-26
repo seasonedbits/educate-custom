@@ -24,7 +24,7 @@ $educate_options = get_option('educate_theme_options');
             <div class="scroll-header">
                 <div class="educate-container container">
                     <div class="row">
-                        <div class="col-md-3 logo-small col-sm-12">
+                        <div class="col-md-4 logo-small col-sm-12">
                             <?php if (!empty($educate_options['logo'])) {
                               list($educate_width,$educate_height)= getimagesize($educate_options['logo']);
 ?>
@@ -38,7 +38,7 @@ $educate_options = get_option('educate_theme_options');
                                 </a>
                             <?php } ?>
                         </div>
-                        <div class="col-md-9 col-sm-12 center-content">
+                        <div class="col-md-8 col-sm-12 center-content">
                             <?php
                             if (!empty($educate_options['fburl']) || !empty($educate_options['twitter']) || !empty($educate_options['youtube']) || !empty($educate_options['rss'])) {
                                 $educate_header_class = ' col-md-10 col-sm-9';
