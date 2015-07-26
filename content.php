@@ -25,9 +25,15 @@
                                         <div class="col-md-3 col-sm-3 blog-date">
                                             <?php educate_entry_meta_date(); ?>
                                         </div>
-                                        <div class="col-md-9 col-sm-9 blog-meta"> <a class="blog-title" href="<?php echo esc_url(get_permalink()); ?>">
+                                        <div class="col-md-9 col-sm-9 blog-meta">
+                                            <a class="blog-title" href="<?php echo esc_url(get_permalink()); ?>">
                                                 <?php the_title(); ?>
                                             </a>
+
+                                            <div>
+                                                <?php the_content(); ?>
+                                            </div>
+
                                             <?php educate_entry_meta(); ?>
                                         </div>
                                     </div>
