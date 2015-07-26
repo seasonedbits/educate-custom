@@ -88,16 +88,17 @@ function educate_entry_meta() {
 
     $educate_category_list = get_the_category_list(', ', ' ');
     $educate_tag_list = get_the_tag_list(' ', ', ');
-    $educate_author = sprintf('<a href="%1$s" title="%2$s" >%3$s</a>', esc_url(get_author_posts_url(get_the_author_meta('ID'))), esc_attr(sprintf(__('View all posts by %s', 'educate'), get_the_author())), get_the_author());
+    $educate_author = sprintf('<a href="%1$s" title="%2$s" ><span class="fa fa-user"></span> %3$s</a>', esc_url(get_author_posts_url(get_the_author_meta('ID'))), esc_attr(sprintf(__('View all posts by %s', 'educate'), get_the_author())), get_the_author());
 
     $educate_utility_text = '<ul>';
     if ($educate_category_list) {
-        $educate_utility_text .= '<li>%1$s</li>';
+        $educate_utility_text .= '<span class="fa fa-folder-open-o"></span> <li>%1$s</li>';
     }
     if ($educate_tag_list) {
-        $educate_utility_text .= '<li>%2$s</li>';
+        $educate_utility_text .= ' | <span class="fa fa-tags"></span> <li>%2$s</li>';
     }
-    $educate_utility_text .= '<li>%3$s</li><li>' . educate_comment_number_custom() . '</li></ul>';
+    $educate_utility_text .= '<li>%3$s</li>'; // author
+    $educate_utility_text .= '</ul>';
     printf(
             $educate_utility_text, $educate_category_list, $educate_tag_list, $educate_author
     );
