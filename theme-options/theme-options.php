@@ -193,19 +193,7 @@ function educate_framework_page() {
                                     </div>
                                 </div>
                             </div>
-                            <div id="section-blogtitle" class="section theme-tabs"> <a class="heading theme-option-inner-tab" href="javascript:void(0)">
-                                    <?php _e('Blog Title', 'educate'); ?>
-                                </a>
-                                <div class="theme-option-inner-tab-group">
-                                    <div class="ft-control">
-                                        <input type="text" id="blogtitle" class="of-input" name="educate_theme_options[blogtitle]" maxlength="30" size="32"  value="<?php
-                                        if (!empty($educate_options['blogtitle'])) {
-                                            echo esc_attr($educate_options['blogtitle']);
-                                        }
-                                        ?>" disabled>
-                                    </div>
-                                </div>
-                            </div>
+                            <!-- Remove 'Blog Title' -->
                         </div>
                         <!-------------- Footer Settings group ----------------->
                         <div id="options-group-4" class="group theme-option-inner-tabs">
@@ -370,9 +358,9 @@ function educate_framework_page() {
                                             ?>"  placeholder="<?php _e('Section Title', 'educate'); ?>" />
                                         </div>
                                         <div class="ft-control">
-                                            // our description now supports HTML code
                                             <textarea name="educate_theme_options[aboutdesc-<?php echo $educate_j; ?>]" id="aboutdesc-<?php echo $educate_j; ?>" class="of-input" placeholder="<?php _e('Text/Html', 'educate'); ?>" maxlength="200" rows="5" ><?php
                                                 if (!empty($educate_options['aboutdesc-' . $educate_j])) {
+                                                    // our description now supports HTML code
                                                     echo esc_attr($educate_options['aboutdesc-' . $educate_j]);
                                                 }
                                                 ?>
@@ -381,114 +369,7 @@ function educate_framework_page() {
                                     </div>
                                 </div>
                             <?php endfor; ?>
-                            <h3>
-                                <?php _e('Blog', 'educate'); ?>
-                            </h3>
-                            <div class="section theme-tabs"> <a class="heading theme-option-inner-tab" href="javascript:void(0)">
-                                    <?php _e('Blog Details', 'educate'); ?>
-                                </a>
-                                <div class="theme-option-inner-tab-group">
-                                    <div class="ft-control">
-                                        <input id="blog-title" class="of-input" maxlength="130" name="educate_theme_options[blog-title]" type="text" size="46" value="<?php
-                                        if (!empty($educate_options['blog-title'])) {
-                                            echo esc_attr($educate_options['blog-title']);
-                                        }
-                                        ?>"  placeholder="<?php _e('Title', 'educate'); ?>" />
-                                    </div>
-                                    <div class="ft-control">
-                                        <input id="blog-title" class="of-input" maxlength="130" name="educate_theme_options[blog-sub-title]" type="text" size="46" value="<?php
-                                        if (!empty($educate_options['blog-sub-title'])) {
-                                            echo esc_attr($educate_options['blog-sub-title']);
-                                        }
-                                        ?>"  placeholder="<?php _e('Sub Title', 'educate'); ?>" />
-                                    </div>
-                                    <div class="ft-control">
-                                        <select name="educate_theme_options[blog-category]" id="category">
-                                            <option value=""><?php echo esc_attr(__('Select Category', 'educate')); ?></option>
-                                            <?php
-                                            $educate_args = array(
-                                                'post_status' => 'publish',
-                                                'meta_query' => array(
-                                                    array(
-                                                        'key' => '_thumbnail_id',
-                                                        'compare' => 'EXISTS'
-                                                    ),
-                                                )
-                                            );
-                                            $educate_post = new WP_Query($educate_args);
-                                            $educate_cat_id = array();
-                                            while ($educate_post->have_posts()) {
-                                                $educate_post->the_post();
-                                                $educate_post_categories = wp_get_post_categories(get_the_id());
-                                                $educate_cat_id[] = $educate_post_categories[0];
-                                            }
-                                            $educate_cat_id = array_unique($educate_cat_id);
-                                            $educate_args = array(
-                                                'orderby' => 'name',
-                                                'parent' => 0,
-                                                'include' => $educate_cat_id
-                                            );
-                                            $educate_categories = get_categories($educate_args);
-                                            foreach ($educate_categories as $educate_category) {
-                                                if ($educate_category->term_id == $educate_options['blog-category'])
-                                                    $educate_selected = "selected=selected";
-                                                else
-                                                    $educate_selected = '';
-                                                $educate_option = '<option value="' . $educate_category->term_id . '" ' . $educate_selected . '>';
-                                                $educate_option .= $educate_category->cat_name;
-                                                $educate_option .= '</option>';
-                                                echo $educate_option;
-                                            }
-                                            ?>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <h3>
-                                <?php _e('Our Mission', 'educate'); ?>
-                            </h3>
-                            <div class="section theme-tabs"><a class="heading theme-option-inner-tab" href="javascript:void(0)">
-                                    <?php _e('Our Mission', 'educate'); ?>
-                                </a>
-                                <div class="theme-option-inner-tab-group">
-                                    <div class="ft-control">
-                                        <input class="of-input" maxlength="130" name="educate_theme_options[mission-title]" type="text" size="46" value="<?php
-                                        if (!empty($educate_options['mission-title'])) {
-                                            echo esc_attr($educate_options['mission-title']);
-                                        }
-                                        ?>"  placeholder="<?php _e('Title', 'educate'); ?>" />
-                                    </div>
-                                    <div class="ft-control">
-                                        <input class="of-input" maxlength="130" name="educate_theme_options[mission-sub-title]" type="text" size="46" value="<?php
-                                        if (!empty($educate_options['mission-sub-title'])) {
-                                            echo esc_attr($educate_options['mission-sub-title']);
-                                        }
-                                        ?>"  placeholder="<?php _e('Sub Title', 'educate'); ?>" />
-                                    </div>
-                                    <div class="ft-control">
-                                        <textarea name="educate_theme_options[mission-detail]" class="of-input" placeholder="<?php _e('Description', 'educate'); ?>" rows="5" ><?php
-                                            if (!empty($educate_options['mission-detail'])) {
-                                                echo esc_attr($educate_options['mission-detail']);
-                                            }
-                                            ?>
-                                        </textarea>
-                                    </div>
-                                    <div class="ft-control">
-                                        <input type="text" class="of-input" maxlength="130" name="educate_theme_options[mission-link-name]" size="46" value="<?php
-                                            if (!empty($educate_options['mission-link-name'])) {
-                                                echo esc_attr($educate_options['mission-link-name']);
-                                            }
-                                            ?>"  placeholder="<?php _e('Mission button name', 'educate'); ?>" />
-                                    </div>
-                                    <div class="ft-control">
-                                        <input type="url" class="of-input" maxlength="130" name="educate_theme_options[mission-link]" size="46" value="<?php
-                                    if (!empty($educate_options['mission-link'])) {
-                                        echo esc_attr($educate_options['mission-link']);
-                                    }
-                                    ?>"  placeholder="<?php _e('Mission Link', 'educate'); ?>" />
-                                    </div>
-                                </div>
-                            </div>
+                            <!-- Remove 'Blog Details' and 'Our Mission' -->
                         </div>
                         <!-------------- Social Settings group ----------------->
                         <div id="options-group-3" class="group theme-option-inner-tabs">
