@@ -1169,7 +1169,8 @@ a.testimonials-viewer {
     margin: 5px 0 0;
 }
 .single-blog-content p{
-    display: inline-block;
+    /* 20151013: inlining causes paragraph to render in a single line */
+    /*display: inline-block;*/
     margin-bottom: 0;
     margin-top: 25px;
     text-align: justify;
